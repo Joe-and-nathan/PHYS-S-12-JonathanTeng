@@ -14,29 +14,148 @@
 <div>
    </div>
     <div class="col-sm-4">
-         <img alt="INTRO" src="./download (14).gif" class=center>
+         <img alt="INTRO" src="./download (16).gif" class=center>
   </div>
 
-   After not coming to class one day due to a fever (it was not covid, I got tested), I came to the horrifying realization that I may have skipped the singlemost imporatant class of the semester. I went in and saw everyone sawing and cutting with all these fancy equipment. I was asked to make something moving, so I decided to make a water pump that relies on the centrifugal force of circular motion.
-   I connected the motor to make the spinning part of the pump which will lead the water to an exit.
+   After the introduction to microcontrollers, I have set my mind on making one project, which was a calculator that utilizes lights. My original plan was to create a calculator that takes input from the length of button presses and outputs using the number of LEDS. However, due to me using C for the first time, I was unable to create code that would accomplish this. Therefore, I have deicded to dispose of the idea of taking inputs from buttons and instead create a calculator that takes input from the computer, but is entirely in binary.
 <div>
    </div>
     <div class="col-sm-4">
-         <img alt="INTRO" src="./ezgif-4-c72dc5e690.gif" class=center>
+         <img alt="INTRO" src="download (15).gif" class=center>
   </div>
 <div>
 </div>
-After this, I enclosed the spinning part of the pump inside a plastic pipe and placed two lids on each side of the pipe. I drilled a hole through one of the lids to make the pipe fit through, and drilled a hole through the other to make it fit on the motor.
+I first designed the circuits in Tinkercad and then made a simple rough sketch of the circuit. 
 
 <div>
    </div>
     <div class="col-sm-4">
-         <img alt="INTRO" src="./ezgif-4-8cbc961c87.gif" class=center>
+         <img alt="INTRO" src="./img_1266.jpg" class=center>
   </div>
 
 
-  Although the force was not as strong as I wanted it to be, I still felt satisfied that this idea works not only in theory, but also in an actual creation that I can make.
+  Then I wired it onto the Arduino Board.
+  <div>
+   </div>
+    <div class="col-sm-4">
+         <img alt="INTRO" src="./img_1267.jpg" class=center>
+  </div>
+This is the code I used for this project.
+<div class="boxed">
+  
+int pin1=9;  
+int pin2=12;
+int pin3=11;
+int pin4=10;
+int timr=10000;
+int i = 0;
+int var1 = 0;
+int var2 = 0;
+int bt = 0;
+int button=2;
+void setup() {
+  
 
+Serial.begin(9600);
+pinMode(pin1,OUTPUT);
+pinMode(pin2,OUTPUT);pinMode(pin3,OUTPUT);pinMode(pin4,OUTPUT);
+pinMode(button, INPUT);
+}
+
+
+
+void loop() {
+
+bt == HIGH;
+bt = digitalRead(button);
+digitalWrite(pin4,LOW);
+digitalWrite(pin3,LOW);
+digitalWrite(pin2,LOW);
+digitalWrite(pin1,LOW);
+
+
+
+Serial.println("Enter an integer from 0 to 8");
+while (Serial.available() == 0)   
+    {}  
+var1 = Serial.read();
+  if (var1 == 8);{
+    Serial.println("Enter an integer from 0 to 7");
+    while (Serial.available() == 0)   
+    {}  
+      var2 = Serial.read();}
+  if (var1 < 8);{
+    Serial.println("");
+while (Serial.available() == 0)   
+    {}  
+var2 = Serial.read();}
+  
+
+
+
+int i = var1 + var2;
+
+if((var1 % 2) > 0) { digitalWrite(pin1, HIGH); } else { digitalWrite(pin1, LOW); }
+
+if((var1 % 4) > 1) { digitalWrite(pin2, HIGH); } else { digitalWrite(pin2, LOW); }
+
+if((var1 % 8) > 3) { digitalWrite(pin3, HIGH); } else { digitalWrite(pin3, LOW); }
+
+if((var1 % 16) > 7) { digitalWrite(pin4, HIGH); } else { digitalWrite(pin4, LOW); }
+
+delay(1000);
+
+digitalWrite(pin4,LOW);
+digitalWrite(pin3,LOW);
+digitalWrite(pin2,LOW);
+digitalWrite(pin1,LOW);
+delay(1000);
+if((var2 % 2) > 0) { digitalWrite(pin1, HIGH); } else { digitalWrite(pin1, LOW); }
+
+if((var2 % 4) > 1) { digitalWrite(pin2, HIGH); } else { digitalWrite(pin2, LOW); }
+
+if((var2 % 8) > 3) { digitalWrite(pin3, HIGH); } else { digitalWrite(pin3, LOW); }
+
+if((var2 % 16) > 7) { digitalWrite(pin4, HIGH); } else { digitalWrite(pin4, LOW); }
+
+delay(1000);
+
+digitalWrite(pin4,LOW);
+digitalWrite(pin3,LOW);
+digitalWrite(pin2,LOW);
+digitalWrite(pin1,LOW);
+delay(1000);
+if((i % 2) > 0) { digitalWrite(pin1, HIGH); } else { digitalWrite(pin1, LOW); }
+
+if((i % 4) > 1) { digitalWrite(pin2, HIGH); } else { digitalWrite(pin2, LOW); }
+
+if((i % 8) > 3) { digitalWrite(pin3, HIGH); } else { digitalWrite(pin3, LOW); }
+
+if((i % 16) > 7) { digitalWrite(pin4, HIGH); } else { digitalWrite(pin4, LOW); }
+
+delay(1000);
+
+delay(100000);
+}
+</div>
+
+<div>
+</div>
+The final product asks the user to enter two integers and would sum them up and display them in binary.
+For example: 7 + 8:
+<div>
+   </div>
+    <div class="col-sm-4">
+         <img alt="INTRO" src="./ezgif-4-c9cf7d495b.gif" class=center>
+  </div>
+
+<div>
+   </div>
+    <div class="col-sm-4">
+         <img alt="INTRO" src="./ezgif-4-9baa5ea170.gif" class=center>
+  </div>
+
+  The device first flashes the two inputs in binary before displaying the final sum in binary.
  [GO BACK](../index.html).
 
 
