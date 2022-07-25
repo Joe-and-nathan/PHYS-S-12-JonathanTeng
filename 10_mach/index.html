@@ -12,15 +12,38 @@
 
 
 
-  ### GUANG WEI (JONATHAN) TENG
+  ```
+  const int stepPin = 1;
+const int dirPin = 0;
 
-   Hi! I am Jonathan Teng from Taipei, Taiwan. This is one of my first experiences with actual website-making and the "maker" movement. Interestingly, the last time I heard this term was back in 8th grade when I was still in a Taiwanese public school. The only memories of that course was that the teacher had anger issues and would shout at me (NOT FUN!) This experience, though, seems different and I look foward to making projects and working with every one of you.
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(stepPin, OUTPUT);
+  pinMode(dirPin, OUTPUT);
 
-  ![image of myself](./joenathan.JPG)
+  digitalWrite(dirPin, LOW);
+}
 
-  this is me, as indicated by the photo, I am in desperate need of acne cream.
-
-  [GO BACK](../index.html).
+void loop() {
+  int x = 0;
+  int y = 0;
+  // put your main code here, to run repeatedly:
+  for(x < 113; x++;) {
+  digitalWrite(stepPin, LOW);
+  delay(1);
+  digitalWrite(stepPin, HIGH);
+  delay(1);
+  }
+  delay(15000);
+  digitalWrite(dirPin, HIGH);
+  for(y < 113; y++;) {
+  digitalWrite(stepPin, LOW);
+  delay(1);
+  digitalWrite(stepPin, HIGH);
+  delay(1);
+  }
+}
+```
 
 
 
