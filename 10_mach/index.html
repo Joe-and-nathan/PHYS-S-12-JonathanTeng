@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<title>PHYS-S-12: Intro to Digital Fabrication </title>
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="../style.css" rel="stylesheet">
 
 <body>
 
-
+<body style="background-color:#211d21; color:floralwhite;">
 <xmp theme="journal" style="display:none;">
 
 
+The project I decided to do this time was something that resembled a catapult. My initial idea was to use a rope-based catapult, but knowing that I am low on time, I needed a workaround. So I devised a plan to make a spring-based catapault where the motor rotates a block of wood that stretches the spring that would be held and ultimately released by hand.
+<div>
+  </div>
+Unfortunately, the problem that I ran into was that the motor was not strong enough to fully rotate the block of wood.
+<div>
+   </div>
+    <div class="col-sm-4">
+         <img alt="INTRO" src="./IMG_1693.gif" class=center>
+  </div>
+Therefore, I proped the block of wood up with a box. The code I wrote assumes that the machine always starts at the same location (which is most likely the case because of the downwards force of the weight of the wood blocks) and rotates clockwise for around 350 steps (cant be properly converted into degrees because the wood is pulling against it), waits a few seconds for the launch and the repositioning of the block, and rotates back to the initial position.
+
 
   ```
-  const int stepPin = 1;
+const int stepPin = 1;
 const int dirPin = 0;
 
 void setup() {
@@ -21,30 +32,44 @@ void setup() {
   pinMode(stepPin, OUTPUT);
   pinMode(dirPin, OUTPUT);
 
-  digitalWrite(dirPin, LOW);
+  
 }
 
 void loop() {
-  int x = 0;
-  int y = 0;
-  // put your main code here, to run repeatedly:
-  for(x < 113; x++;) {
+  for ( int i = 0; i < 350; i++ ) {
+    digitalWrite(dirPin, HIGH);
   digitalWrite(stepPin, LOW);
-  delay(1);
+  delay(10);
   digitalWrite(stepPin, HIGH);
-  delay(1);
-  }
-  delay(15000);
-  digitalWrite(dirPin, HIGH);
-  for(y < 113; y++;) {
+  delay(10);
+}
+delay(5000);
+  for ( int g = 0; g < 350; g++ ) {
+    digitalWrite(dirPin, LOW);
   digitalWrite(stepPin, LOW);
-  delay(1);
+  delay(10);
   digitalWrite(stepPin, HIGH);
-  delay(1);
+  delay(10);
+}
+delay(5000);
+}
   }
 }
 ```
+<div>
+   </div>
+    <div class="col-sm-4">
+         <img alt="INTRO" src="./ezgif-3-9398efe651.gif" class=center>
+  </div>
+  Launch
+  <div>
+   </div>
+    <div class="col-sm-4">
+         <img alt="INTRO" src="./ezgif-3-33c1c2e5b6.gif" class=center>
+  </div>
+  Return to original position
 
+ [GO BACK](../index.html).
 
 
 </xmp>
